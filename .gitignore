@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+ouster-env/
+.venv/
+venv/
+env/
+
+# Training outputs
+runs/
+
+# Datasets
+datasets/MOT17/
+datasets/MOT17_yolo/images/
+datasets/MOT17_yolo/labels/
+
+# Model weights and exported artifacts
+*.pt
+*.onnx
+*.engine
+*.torchscript
+
+# IDE / OS
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
+
