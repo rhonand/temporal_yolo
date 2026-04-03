@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+import ultralytics
 from ultralytics import YOLO
 
 
@@ -123,10 +124,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
+    repo_root = Path(__file__).resolve().parent
     data_path = args.data.resolve()
+    ultralytics_path = Path(ultralytics.__file__).resolve()
 
     if not data_path.exists():
         raise FileNotFoundError(f"Dataset yaml not found: {data_path}")
+    if repo_root not in ultralytics_path.parents:
+        raise RuntimeError(
+            "Imported ultralytics is not the repository copy. "
+            f"Current import: {ultralytics_path}"
+        )
+
+    print(f"Using ultralytics from: {ultralytics_path}")
 
     model = YOLO(args.model)
     train_kwargs = {

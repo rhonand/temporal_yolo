@@ -17,9 +17,7 @@ env/
 runs/
 
 # Datasets
-datasets/MOT17/
-datasets/MOT17_yolo/images/
-datasets/MOT17_yolo/labels/
+datasets/
 
 # Model weights and exported artifacts
 *.pt
@@ -32,4 +30,3 @@ datasets/MOT17_yolo/labels/
 .vscode/
 Thumbs.db
 Desktop.ini
-
